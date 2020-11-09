@@ -19,7 +19,33 @@ df.shape
 '''
 I might choose to explore hosts with only one-time access at a later point, in which case I would re-add these dropped observations.
 
-I decided to take this code out because it removed too many anomalies that could be interesting. I found that all of the ones I kept originally were from San Antonio during the Darden dates, so obviously I dropped meaningful information.
+I decided to take this code out because it removed too many anomalies that could be interesting. 
 
 Saving this code here for documentation purposes, and in case I want to use it again later.
 '''
+
+
+
+
+
+for x in darden_df.ip: 
+    try:
+#        response = reader.city(x)
+        darden_df['ip_city'] = reader.city(x).city.name
+        break
+    except:
+        print("Oops!", sys.exc_info()[0], "occurred.")
+        print("Next observation.")
+        darden_df['ip_city'] = 'error'
+
+
+
+for x in darden_df.ip: 
+    try:
+        response = reader.city(x)
+        darden_df['ip_city'] = response.city.name
+        break
+    except:
+        print("Oops!", sys.exc_info()[0], "occurred.")
+        print("Next observation.")
+        darden_df['ip_city'] = 'error'
