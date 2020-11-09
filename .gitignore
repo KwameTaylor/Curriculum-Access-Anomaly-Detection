@@ -1,0 +1,7 @@
+.ipynb_checkpoints/
+.DS_Store
+env.py
+__pycache__
+*.csv
+*.txt
+GeoLite*
