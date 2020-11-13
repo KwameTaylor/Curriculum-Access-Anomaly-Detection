@@ -33,4 +33,3 @@ def plot_top_countries(df):
     country_plot_df['country'].value_counts().plot(kind='bar')
     plt.title('In what countries was the curriculum accessed the most?')
     plt.show()
-
